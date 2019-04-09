@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import {
-  allclear,
+  allClear,
   equals,
-  clearlast,
-  addnumber,
-  operator
+  addNumber,
+  operator,
+  addDecimal
 } from "../actions/actions";
 
 const PageWrapper = styled.div`
@@ -90,6 +90,7 @@ const CalculatorWrapper = styled.div`
 `;
 
 const OutputSection = styled.div`
+  overflow: scroll;
   display: flex;
   align-items: center;
   font-size: 25px;
@@ -112,6 +113,22 @@ const Button = styled.div`
   }
 `;
 
+const PlusButton = styled(Button)`
+  background: ${props => (props.currentOperator === "+" ? "red" : "#a4c2a5")};
+`;
+
+const MinusButton = styled(Button)`
+  background: ${props => (props.currentOperator === "-" ? "red" : "#a4c2a5")};
+`;
+
+const MultiplyButton = styled(Button)`
+  background: ${props => (props.currentOperator === "*" ? "red" : "#a4c2a5")};
+`;
+
+const DivideButton = styled(Button)`
+  background: ${props => (props.currentOperator === "/" ? "red" : "#a4c2a5")};
+`;
+
 class Calculator extends Component {
   render() {
     return (
@@ -120,31 +137,51 @@ class Calculator extends Component {
           <OutputSection>{this.props.currentOutput}</OutputSection>
           <ButtonWrapper>
             <NumberWrapper>
-              <Button onClick={() => this.props.addnumber(1)}>1</Button>
-              <Button onClick={() => this.props.addnumber(2)}>2</Button>
-              <Button onClick={() => this.props.addnumber(3)}>3</Button>
-              <Button onClick={() => this.props.addnumber(4)}>4</Button>
-              <Button onClick={() => this.props.addnumber(5)}>5</Button>
-              <Button onClick={() => this.props.addnumber(6)}>6</Button>
-              <Button onClick={() => this.props.addnumber(7)}>7</Button>
-              <Button onClick={() => this.props.addnumber(8)}>8</Button>
-              <Button onClick={() => this.props.addnumber(9)}>9</Button>
+              <Button onClick={() => this.props.addNumber(1)}>1</Button>
+              <Button onClick={() => this.props.addNumber(2)}>2</Button>
+              <Button onClick={() => this.props.addNumber(3)}>3</Button>
+              <Button onClick={() => this.props.addNumber(4)}>4</Button>
+              <Button onClick={() => this.props.addNumber(5)}>5</Button>
+              <Button onClick={() => this.props.addNumber(6)}>6</Button>
+              <Button onClick={() => this.props.addNumber(7)}>7</Button>
+              <Button onClick={() => this.props.addNumber(8)}>8</Button>
+              <Button onClick={() => this.props.addNumber(9)}>9</Button>
             </NumberWrapper>
 
             <BottomNumberWrapper>
-              <Button onClick={() => this.props.addnumber(0)}>0</Button>
-              <Button onClick={() => this.props.addnumber(".")}>.</Button>
+              <Button onClick={() => this.props.addNumber(0)}>0</Button>
+              <Button onClick={() => this.props.addDecimal(".")}>.</Button>
             </BottomNumberWrapper>
 
             <OperatorWrapper>
-              <Button onClick={() => this.props.operator("+")}>+</Button>
-              <Button onClick={() => this.props.operator("-")}>-</Button>
-              <Button onClick={() => this.props.operator("*")}>*</Button>
-              <Button onClick={() => this.props.operator("/")}>/</Button>
+              <PlusButton
+                currentOperator={this.props.currentOperator}
+                onClick={() => this.props.operator("+")}
+              >
+                +
+              </PlusButton>
+              <MinusButton
+                currentOperator={this.props.currentOperator}
+                onClick={() => this.props.operator("-")}
+              >
+                -
+              </MinusButton>
+              <MultiplyButton
+                currentOperator={this.props.currentOperator}
+                onClick={() => this.props.operator("*")}
+              >
+                *
+              </MultiplyButton>
+              <DivideButton
+                currentOperator={this.props.currentOperator}
+                onClick={() => this.props.operator("/")}
+              >
+                /
+              </DivideButton>
             </OperatorWrapper>
 
             <AcWrapper>
-              <Button onClick={() => this.props.allclear()}>AC</Button>
+              <Button onClick={() => this.props.allClear()}>AC</Button>
             </AcWrapper>
             <EqualsWrapper>
               <Button onClick={() => this.props.equals()}>=</Button>
@@ -157,18 +194,19 @@ class Calculator extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentOutput: state.calculatorReducer.currentOutput
+  currentOutput: state.calculatorReducer.currentOutput,
+  currentOperator: state.calculatorReducer.currentOperator
 });
 
-const calculatorActions = {
-  allclear,
+const myActions = {
+  allClear,
   equals,
-  clearlast,
-  addnumber,
-  operator
+  addNumber,
+  operator,
+  addDecimal
 };
 
 export default connect(
   mapStateToProps,
-  calculatorActions
+  myActions
 )(Calculator);
