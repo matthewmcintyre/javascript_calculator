@@ -86,6 +86,7 @@ const CalculatorWrapper = styled.div`
   padding: 20px;
   justify-content: center;
   align-items: center;
+  border-radius: 1px;
 `;
 
 const OutputSection = styled.div`
@@ -96,6 +97,7 @@ const OutputSection = styled.div`
   height: 50px;
   width: 220px;
   margin-bottom: 10px;
+  border-radius: 1px;
 `;
 
 const Button = styled.div`
@@ -106,7 +108,7 @@ const Button = styled.div`
   background: #a4c2a5;
   border-radius: 2px;
   &: hover {
-    background: blue;
+    background: #697c6a;
   }
 `;
 
