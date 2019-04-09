@@ -1,15 +1,17 @@
 const initialState = {
-  currentOutput: "",
+  //what is displayed on screen
+  currentOutput: "0",
+
+  //value is saved here once operator is clicked
   valueOne: "",
-  valueTwo: "",
-  result: "lmao",
+
+  //operator in question goes here
   operator: ""
 };
 
 const calculatorReducer = (state = initialState, action) => {
-  console.log(state);
-
   switch (action.type) {
+    //TODO equals must output a max number of digits (14)
     case "EQUALS":
       return {
         ...state,
@@ -23,6 +25,10 @@ const calculatorReducer = (state = initialState, action) => {
         currentOutput: "0",
         newValue: false
       };
+
+    //TODO addnumber needs to do the following
+    //1. get rid of zero if it is the first number
+    //2. max number of digits to fit on screen
     case "ADDNUMBER":
       return {
         ...state,
@@ -30,6 +36,11 @@ const calculatorReducer = (state = initialState, action) => {
         currentOutput: state.currentOutput + action.number
       };
 
+    //TODO add decimal..
+    //this must only add ONE decimal and refuse any further ...regex?
+
+    //TODO
+    //1. operator must change outline of the operator button
     case "OPERATOR":
       return {
         ...state,
