@@ -7,7 +7,7 @@ import {
   clearlast,
   addnumber,
   operator
-} from "../actions/Actions";
+} from "../actions/actions";
 
 const PageWrapper = styled.div`
   height: 100vh;
