@@ -1,9 +1,5 @@
 export const EQUALS = "EQUALS";
-export const ALLCLEAR = "ALLCLEAR";
-export const CLEARLAST = "CLEARLAST";
-export const ADDNUMBER = "ADDNUMBER";
-export const PLUS = "PLUS";
-export const MINUS = "MINUS";
-export const DIVIDE = "DIVIDE";
-export const MULTIPLY = "MULTIPLY";
+export const ALL_CLEAR = "ALL_CLEAR";
+export const ADD_NUMBER = "ADD_NUMBER";
+export const ADD_DECIMAL = "ADD_DECIMAL";
 export const OPERATOR = "OPERATOR";

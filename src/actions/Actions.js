@@ -1,20 +1,21 @@
-import * as actionTypes from "./ActionTypes";
+import * as actionTypes from "./actionTypes";
 
-export const allclear = () => ({
-  type: actionTypes.ALLCLEAR
+export const allClear = () => ({
+  type: actionTypes.ALL_CLEAR
 });
 
 export const equals = () => ({
   type: actionTypes.EQUALS
 });
 
-export const clearlast = () => ({
-  type: actionTypes.CLEARLAST
+export const addNumber = number => ({
+  type: actionTypes.ADD_NUMBER,
+  number
 });
 
-export const addnumber = number => ({
-  type: actionTypes.ADDNUMBER,
-  number
+export const addDecimal = decimal => ({
+  type: actionTypes.ADD_DECIMAL,
+  decimal
 });
 
 export const operator = operator => ({
