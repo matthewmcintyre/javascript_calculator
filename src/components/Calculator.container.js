@@ -114,19 +114,23 @@ const Button = styled.div`
 `;
 
 const PlusButton = styled(Button)`
-  background: ${props => (props.currentOperator === "+" ? "red" : "#a4c2a5")};
+  box-shadow: inset 0px 0px 0px
+    ${props => (props.currentOperator === "+" ? "5px #481620" : "0px #a4c2a5")};
 `;
 
 const MinusButton = styled(Button)`
-  background: ${props => (props.currentOperator === "-" ? "red" : "#a4c2a5")};
+  box-shadow: inset 0px 0px 0px
+    ${props => (props.currentOperator === "-" ? "5px #481620" : "0px #a4c2a5")};
 `;
 
 const MultiplyButton = styled(Button)`
-  background: ${props => (props.currentOperator === "*" ? "red" : "#a4c2a5")};
+  box-shadow: inset 0px 0px 0px
+    ${props => (props.currentOperator === "*" ? "5px #481620" : "0px #a4c2a5")};
 `;
 
 const DivideButton = styled(Button)`
-  background: ${props => (props.currentOperator === "/" ? "red" : "#a4c2a5")};
+  box-shadow: inset 0px 0px 0px
+    ${props => (props.currentOperator === "/" ? "5px #481620" : "0px #a4c2a5")};
 `;
 
 class Calculator extends Component {
